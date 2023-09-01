@@ -159,3 +159,19 @@ UpdatMany() db.COLLECTION_NAME.updateMany(<fiIter>, <update>)
         "active" : "true"
 }
 >
+
+
+> db.rajendra.deleteMany({name:"MongoDb"})
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.rajendra.find().pretty()
+{
+        "_id" : ObjectId("64f080655e98d1ee419ce9f7"),
+        "name" : "React js",
+        "type" : "frontend",
+        "videos" : 1010,
+        "active" : "true"
+}
+> db.rajendra.deleteMany({})
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.rajendra.find().pretty()
+>
