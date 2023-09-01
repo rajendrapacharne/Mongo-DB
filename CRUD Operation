@@ -102,3 +102,60 @@ uncaught exception: TypeError: db.rajendra.findOne(...).pretty is not a function
         "active" : true
 }
 >
+
+
+### UpdateOne() db.COLLECTION_NAME.updateOne(<fiIter>, <update>) 
+UpdatMany() db.COLLECTION_NAME.updateMany(<fiIter>, <update>) 
+
+> db.rajendra.updateOne({name:"MongoDb"},{$set: {type:"Full Stack"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.rajendra.find().pretty()
+{
+        "_id" : ObjectId("64f080655e98d1ee419ce9f7"),
+        "name" : "React js",
+        "type" : "frontend",
+        "videos" : "80",
+        "active" : "true"
+}
+{
+        "_id" : ObjectId("64f0bd5c2dac7ff30a3a5669"),
+        "name" : "MongoDb",
+        "type" : "Full Stack",
+        "videos" : 5,
+        "active" : true
+}
+> db.rajendra.updateMany({name:"MongoDb"},{$set: {typeactive:"Full Stack"}}) db.rajendra.updateMany({name:"MongoDb"},{$set: {active:"true"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.rajendra.find().pretty()
+{
+        "_id" : ObjectId("64f080655e98d1ee419ce9f7"),
+        "name" : "React js",
+        "type" : "frontend",
+        "videos" : "80",
+        "active" : "true"
+}
+{
+        "_id" : ObjectId("64f0bd5c2dac7ff30a3a5669"),
+        "name" : "MongoDb",
+        "type" : "Full Stack",
+        "videos" : 5,
+        "active" : "true"
+}
+> db.rajendra.updateMany({active:"true"},{$set: {videos:1010}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.rajendra.find().pretty()
+{
+        "_id" : ObjectId("64f080655e98d1ee419ce9f7"),
+        "name" : "React js",
+        "type" : "frontend",
+        "videos" : 1010,
+        "active" : "true"
+}
+{
+        "_id" : ObjectId("64f0bd5c2dac7ff30a3a5669"),
+        "name" : "MongoDb",
+        "type" : "Full Stack",
+        "videos" : 1010,
+        "active" : "true"
+}
+>
